@@ -1,0 +1,24 @@
+<p>
+  appointment-list-patient works!
+</p>
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Problem</th>
+        <th>Appointment Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of listAppo">
+        <td>{{app.id}}</td>
+        <td>{{app.problem}}</td>
+        <td>{{app.appointmentDate | date}}</td>
+        <td *ngIf="app.appointmentStatus==0">Requested</td>
+        <td *ngIf="app.appointmentStatus==1">Accepted</td>
+      </tr>
+    </tbody>
+  </table>

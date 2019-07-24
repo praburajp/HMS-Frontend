@@ -1,0 +1,103 @@
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="radio" [(ngModel)]="selectedRadio" class="form-check-input" name="radioNew" value="new" selected>
+    newPatientButton
+  </label><br>
+  <label class="form-check-label">
+    <input type="radio" [(ngModel)]="selectedRadio" (click)="onClickOld()" class="form-check-input" name="radioOld" value="old">
+    oldPatientButton
+  </label>
+</div>
+
+
+<div *ngIf="selectedRadio=='new'" class="form-group">
+  <label for="">Name</label>
+  <input type="text" [(ngModel)]="patientName" class="form-control" placeholder="Please enter your complete name"
+    aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+  <br />
+  <label>Gender</label>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" [(ngModel)]="patientGender" class="form-check-input" name="Male" value="Male">
+      Male
+    </label>
+    <br />
+    <label class="form-check-label">
+      <input type="radio" [(ngModel)]="patientGender" class="form-check-input" name="Female" value="Female">
+      Female
+    </label>
+  </div>
+  <br>
+  Department:
+  <select [(ngModel)]="selectedDeptId" (change)="changeDept(selectedDeptId)">
+    <option *ngFor="let deptSel of listDept" [value]="deptSel.deptId" [selected]="listDept[0].deptName">{{deptSel.deptName}}</option>
+  </select>
+  <br />
+  Doctor
+  <select [(ngModel)]="selectedDocId">
+    <option *ngFor="let docSel of listDoc" [value]="docSel.id" selected="Choose Doctor">{{docSel.docName}}</option>
+  </select>
+  <br>
+  Choose Blood Group
+  <select [(ngModel)]="patientBloodGroup">
+    <option *ngFor="let item of bg" [value]="item">{{item}}</option>
+  </select>
+  <br />
+  <label for="">Contact Info</label>
+  <input type="text" [(ngModel)]="patientContactInfo" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+
+  <br>
+  <label for="">Problem</label>
+  <input type="text" [(ngModel)]="patientProblem" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+  
+  <br>
+  <label for="">Enter Date</label>
+  <input type="date" [(ngModel)]="patientAppDate" name="selDate" id="selDate" class="form-control">
+
+  <button type="submit" (click)="newPatientRegister()"></button>
+</div>
+
+
+
+<div *ngIf="selectedRadio=='old'" class="form-group">
+
+  <!-- <label for="">Patient ID</label>
+  <input type="number" [(ngModel)]="patientId" class="form-control" placeholder="Please enter your complete name"
+    aria-describedby="helpId"> -->
+    <br>
+    Select Your Patient:
+    <select [(ngModel)]="selectedPatientId" >
+      <option *ngFor="let petSel of listPatient" [value]="petSel.id" >{{petSel.patientName}}</option>
+    </select>
+    <br />
+
+  <label for="">Problem</label>
+  <input type="text" [(ngModel)]="patientProblem" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+  
+  <br>
+  <br>
+  Department:
+  <select [(ngModel)]="selectedDeptId" (change)="changeDept(selectedDeptId)">
+    <option *ngFor="let deptSel of listDept" [value]="deptSel.deptId" [selected]="listDept[0].deptName">{{deptSel.deptName}}</option>
+  </select>
+  <br />
+  Doctor
+  <select [(ngModel)]="selectedDocId">
+    <option *ngFor="let docSel of listDoc" [value]="docSel.id" selected="Choose Doctor">{{docSel.docName}}</option>
+  </select>
+  <br>
+
+
+  <label for="">Enter Date</label>
+  <input type="date" [(ngModel)]="patientAppDate" name="selDate" id="selDate" class="form-control">
+
+  <button type="submit" (click)="oldPatientRegister()">Submit</button>
+
+
+
+
+</div>

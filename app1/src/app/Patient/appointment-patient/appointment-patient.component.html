@@ -1,0 +1,14 @@
+<p>
+  appointment-patient works! CURRENTLY NOT WORKING0
+</p>
+<br>
+<label for="">Problem</label>
+<input type="text" [(ngModel)]="patientProblem" class="form-control" placeholder="" aria-describedby="helpId">
+<small id="helpId" class="text-muted">Help text</small>
+
+<br>
+<label for="">Enter Date</label>
+<input type="date" [(ngModel)]="patientAppDate" name="selDate" id="selDate" class="form-control">
+
+<button type="submit" (click)="regAppointment()"></button>
+

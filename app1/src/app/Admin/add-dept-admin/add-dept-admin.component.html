@@ -1,0 +1,8 @@
+<h3>Add Department</h3>
+<div class="form-group">
+  <label for="">Give Department name here</label>
+  <input type="text" class="form-control" [(ngModel)]="deptName" aria-describedby="helpId" placeholder=".............">
+  <small id="helpId" class="form-text text-muted">Help text</small>
+</div>
+
+<button type="submit" (click)="addDeptToList()" class="btn btn-primary">Submit</button>

@@ -1,0 +1,22 @@
+<p>
+  medicine-list-admin works!
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>MEdicine Id</th>
+      <th>MEdicine Name</th>
+      <th>MEdicine Category</th>
+      <th>MEdicine Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let med of medicineList">
+      <td>{{med.medID}}</td>
+      <td>{{med.medName}}</td>
+      <td>{{med.medCategory}}</td>
+      <td>{{med.medPrice}}</td>
+    </tr>
+  </tbody>
+</table>

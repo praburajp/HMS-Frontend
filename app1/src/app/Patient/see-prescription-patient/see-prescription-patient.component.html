@@ -1,0 +1,39 @@
+<h3>Patient Details for {{patient.patientName}}</h3>
+
+<div *ngFor="let app of patient.appointmentDto">
+  Appointment id: {{app.id}} <br>
+  Appointment Date:{{app.appointmentDate | date}} <br>
+  Problem: {{app.problem}} <br>
+  Prescription: <br>
+  <div >
+      <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Medicine Name</th>
+              <th>Number of Days To Take</th>
+              <th>When Take</th>
+              <th>Take Before Meal / After Meal</th>
+              <th>Price Per Quantity</th>
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pres of app.prescriptionDto">
+              <td>{{pres.medID}}</td>
+              <td>{{pres.medName}}</td>
+              <td>{{pres.noOfDaysToTake}}</td>
+              <td>{{pres.whenTake}}</td>
+              <td>{{pres.beforeAfterMeal}}</td>
+              <td>{{pres.medPrice}}</td>
+              <!-- <td><button type="button" (click)="onClickViewDetails(pet.id)">View Details</button></td>
+              <td><button type="button" (click)="onClickViewPrecription(pet.id)">View Invoices</button></td> -->
+            </tr>
+          </tbody>
+        </table>
+      
+  </div>
+  <br>
+  <br>
+  <br>
+</div>

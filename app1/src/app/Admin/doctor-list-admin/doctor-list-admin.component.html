@@ -1,0 +1,26 @@
+<p>
+  doctor-list-admin works!
+</p>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Doctor Id</th>
+      <th>Doctor Name</th>
+      <th>Doctor Contact Info</th>
+      <th>Doctor Department</th>
+      <th>Doctor email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of doctorsList">
+      <td>{{doc.id}}</td>
+      <td>{{doc.docName}}</td>
+      <td>{{doc.docContactInfo}}</td>
+      <td>{{doc.docDept}}</td>
+      <td>{{doc.email}}</td>
+    </tr>
+  </tbody>
+</table>

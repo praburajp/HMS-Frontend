@@ -1,0 +1,36 @@
+  <div class="form-group">
+  
+    <!-- <label for="">Patient ID</label>
+    <input type="number" [(ngModel)]="patientId" class="form-control" placeholder="Please enter your complete name"
+      aria-describedby="helpId"> -->
+      <br>
+      Patient Id: {{patientId}}
+      <br />
+  
+    <label for="">Problem</label>
+    <input type="text" [(ngModel)]="patientProblem" class="form-control" placeholder="" aria-describedby="helpId">
+    <small id="helpId" class="text-muted">Help text</small>
+    
+    <br>
+    <br>
+    Department:
+    <select [(ngModel)]="selectedDeptId" (change)="changeDept(selectedDeptId)">
+      <option *ngFor="let deptSel of listDept" [value]="deptSel.deptId" [selected]="listDept[0].deptName">{{deptSel.deptName}}</option>
+    </select>
+    <br />
+    Doctor
+    <select [(ngModel)]="selectedDocId">
+      <option *ngFor="let docSel of listDoc" [value]="docSel.id" selected="Choose Doctor">{{docSel.docName}}</option>
+    </select>
+    <br>
+  
+  
+    <label for="">Enter Date</label>
+    <input type="date" [(ngModel)]="patientAppDate" name="selDate" id="selDate" class="form-control">
+  
+    <button type="submit" (click)="oldPatientRegister()">Submit</button>
+  
+  
+  
+  
+  </div>

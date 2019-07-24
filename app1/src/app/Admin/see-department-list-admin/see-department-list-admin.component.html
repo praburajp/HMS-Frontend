@@ -1,0 +1,16 @@
+<p>
+  see-department-list-admin works!
+</p>
+
+<table class="table table-stripped table-bordered">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+  </thead>
+  <tr *ngFor="let d of dept">
+    <td>{{d.deptId}}</td>
+    <td>{{d.deptName}}</td>
+  </tr>
+</table><br>
+<br>
+<button (click)="onClickLogout()">Logout</button>

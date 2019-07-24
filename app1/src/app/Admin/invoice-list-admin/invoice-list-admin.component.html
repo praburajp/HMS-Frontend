@@ -1,0 +1,23 @@
+<p>
+  invoice-list-admin works!
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Patient Name</th>
+      <th>Description</th>
+      <th>Invoice Status</th>
+      <th>Invoice Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let patientInvoice of patientInvoicesList">
+      <td>{{patientInvoice.invoiceId}}</td>
+      <td>{{patientInvoice.patientName}}</td>
+      <td>{{patientInvoice.description}}</td>
+      <td>{{patientInvoice.status}}</td>
+      <td>{{patientInvoice.price}}</td>
+    </tr>
+  </tbody>
+</table>

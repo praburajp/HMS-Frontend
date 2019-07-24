@@ -1,0 +1,34 @@
+<p>
+  appointment-list-admin works!
+</p>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Patient Name</th>
+      <th>Patient Contact Info</th>
+      <th>Problem</th>
+      <th>Appointment Date</th>
+      <th>Status</th>
+      <th>Doctor Name</th>
+      <th>Department Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let app of listAppo">
+      <td>{{app.id}}</td>
+      <td>{{app.patientName}}</td>
+      <td>{{app.patientContactInfo}}</td>
+      <td>{{app.problem}}</td>
+      <td>{{app.appointmentDate | date}}</td>
+      <td>
+        <button type="button" *ngIf="app.appointmentStatus=='0'" (click)="onApproveAppointment(app.id)">Approve</button>
+        <button type="button" *ngIf="app.appointmentStatus=='1'" disabled="disabled">Approve</button>
+      </td>
+      <td>{{app.docName}}</td>
+      <td>{{app.deptName}}</td>
+    </tr>
+  </tbody>
+</table>

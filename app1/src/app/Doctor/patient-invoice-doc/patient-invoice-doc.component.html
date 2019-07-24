@@ -1,0 +1,25 @@
+<p>
+  patient-invoice-doc works!
+</p>
+
+<!-- <h3>You are seeing invoices details of patient named : {{patientInvoicesList[0].patientName}}</!--> -->
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Patient Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Invoice Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patientInvoice of patientInvoicesList">
+        <td>{{patientInvoice.invoiceId}}</td>
+        <td>{{patientInvoice.patientName}}</td>
+        <td>{{patientInvoice.description}}</td>
+        <td>{{patientInvoice.price}}</td>
+        <td>{{patientInvoice.status}}</td>
+      </tr>
+    </tbody>
+  </table>

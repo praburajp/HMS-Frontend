@@ -1,0 +1,28 @@
+
+
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Patient Name</th>
+          <th>Patient Gender</th>
+          <th>Patient Blood Group</th>
+          <th>Patient Contact Info</th>
+          <th>Patient Status</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of patient">
+          <td>{{pet.id}}</td>
+          <td>{{pet.patientName}}</td>
+          <td>{{pet.patientGender}}</td>
+          <td>{{pet.patientContactInfo}}</td>
+          <td>{{pet.patientCaseStatus}}</td>
+          <td><button type="button" (click)="onClickViewDetails(pet.id)">View Details</button></td>
+          <td><button type="button" (click)="onClickViewPrecription(pet.id)">View Invoices</button></td>
+        </tr>
+      </tbody>
+    </table>
+  

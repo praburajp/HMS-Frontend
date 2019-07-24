@@ -1,0 +1,34 @@
+<p>
+  invoice-list-patient works!
+</p>
+<p>
+    patient-invoice-doc works!
+  </p>
+  
+  <h3>You are seeing invoices details of patient named : {{patientId}}</h3>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Patient Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Invoice Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let patientInvoice of patientInvoicesList">
+          <td>{{patientInvoice.invoiceId}}</td>
+          <td>{{patientInvoice.patientName}}</td>
+          <td>{{patientInvoice.description}}</td>
+          <td>{{patientInvoice.price}}</td>
+          <td>{{patientInvoice.status}}</td>
+          <td>
+            <button (click)="payTheInvoiceByPatient(patientInvoice.invoiceId)" *ngIf="patientInvoice.status=='unpaid'">Pay the amount</button>
+            <!-- <button (click)="payTheInvoiceByPatient(patientInvoice.invoiceId)">Pay the amount</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <button (click)="payAllInvoiceForpatient()">Pay All the amount</button>

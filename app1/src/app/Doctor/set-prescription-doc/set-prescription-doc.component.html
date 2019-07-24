@@ -1,0 +1,108 @@
+<!-- 
+
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>No of days to take</th>
+          <th>when take</th>
+          <th>when meal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <form #combined="ngForm" (ngSubmit)="onClickPresc(combined)">
+          
+        <form ngModelGroup="combination1" >
+            <tr>
+              <td>
+                <select name="medicineId" ngModel>
+                  <option *ngFor="let med of medicineList" [value]="med.id">{{med.medicineName}}</option>
+                </select>
+              </td>
+              <td><input type="number" ngModel name="noOfDaysTake"></td>
+              <td><input type="number" ngModel name="whenTake" ></td>
+            </tr>
+          </form>
+          <form ngModelGroup="combination2">
+              <tr>
+                <td>
+                  <select name="medicineId" ngModel>
+                    <option *ngFor="let med of medicineList" [value]="med.id">{{med.medicineName}}</option>
+                  </select>
+                </td>
+                <td><input type="number" ngModel name="noOfDaysTake"></td>
+                <td><input type="number" ngModel name="whenTake" ></td>
+              </tr>
+            </form>
+            <form ngModelGroup="combination3">
+                <tr>
+                  <td>
+                    <select name="medicineId" ngModel>
+                      <option *ngFor="let med of medicineList" [value]="med.id">{{med.medicineName}}</option>
+                    </select>
+                  </td>
+                  <td><input type="number" ngModel name="noOfDaysTake"></td>
+                  <td><input type="number" ngModel name="whenTake" ></td>
+                </tr>
+              </form>
+              
+            <button type="submit"> submit </button>
+        </form>
+      </tbody>
+    </table>
+    <button type="submit">  </button>
+   -->
+
+
+   <form #combined="ngForm" (ngSubmit)="onClickPresc(combined)">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Medicine</th>
+        <th>No of days to take</th>
+        <th>when take</th>
+        <th>when meal</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+  
+          <tr ngModelGroup="combination1">
+            <td>
+              <select name="medID" ngModel>
+                <option *ngFor="let med of medicineList" [value]="med.medID">{{med.medName}}</option>
+              </select>
+            </td>
+            <td><input type="number" ngModel name="noOfDaysTake"></td>
+            <td><input type="text" ngModel name="whenTake" ></td>
+            <td><input type="text" ngModel name="whenMeal" ></td>
+          </tr>
+             <tr ngModelGroup="combination2">
+              <td>
+                <select name="medID" ngModel>
+                  <option *ngFor="let med of medicineList" [value]="med.medID">{{med.medName}}</option>
+                </select>
+              </td>
+              <td><input type="number" ngModel name="noOfDaysTake"></td>
+              <td><input type="text" ngModel name="whenTake" ></td>
+              <td><input type="text" ngModel name="whenMeal" ></td>
+            </tr>
+  
+              <tr ngModelGroup="combination3">
+                <td>
+                  <select name="medID" ngModel>
+                    <option *ngFor="let med of medicineList" [value]="med.medID">{{med.medName}}</option>
+                  </select>
+                </td>
+                <td><input type="number" ngModel name="noOfDaysTake"></td>
+                <td><input type="text" ngModel name="whenTake" ></td>
+                <td><input type="text" ngModel name="whenMeal" ></td>
+              </tr>
+  
+            
+          <button type="submit"> submit </button>
+      
+    </tbody>
+  </table>
+</form>
