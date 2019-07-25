@@ -1,0 +1,32 @@
+<p>
+  bill-patient works!
+</p>
+ 
+<h3>You are seeing invoices details of patient named : {{patientId}}</h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Patient Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Invoice Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patientInvoice of patientInvoicesList">
+        <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.invoiceId}}</td>
+        <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.patientName}}</td>
+        <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.description}}</td>
+        <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.price}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Total</td>
+        <td>{{totalPrice}}</td>
+      </tr>
+    </tbody>
+  </table>
+<button (click)="payAllInvoiceForpatient()">Pay All the amount</button>

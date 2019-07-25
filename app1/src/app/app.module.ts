@@ -31,6 +31,7 @@ import { AdminService } from './admin.service';
 import { DoctorService } from './doctor.service';
 import { PatientService } from './patient.service';
 import { AppointmentPatientComponent } from './Patient/appointment-patient/appointment-patient.component';
+import { BillPatientComponent } from './Patient/bill-patient/bill-patient.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AppointmentPatientComponent } from './Patient/appointment-patient/appoi
     MedicineListAdminComponent,
     InvoiceListAdminComponent,
     AppointmentListAdminComponent,
-    AppointmentPatientComponent
+    AppointmentPatientComponent,
+    BillPatientComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { AppointmentPatientComponent } from './Patient/appointment-patient/appoi
       { path: 'medicine-list-admin', component: MedicineListAdminComponent, canActivate:[AdminService]},
       { path: 'invoice-list-admin', component: InvoiceListAdminComponent, canActivate:[AdminService]},
       { path: 'appointment-list-admin', component: AppointmentListAdminComponent, canActivate:[AdminService]},
-      { path: 'appointment-patient', component: AppointmentPatientComponent,canActivate: [PatientService]}
+      { path: 'appointment-patient', component: AppointmentPatientComponent,canActivate: [PatientService]},
+      { path: 'bill-patient', component: BillPatientComponent}
 
     ])
   ],

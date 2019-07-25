@@ -2,6 +2,12 @@
   appointment-patient works! CURRENTLY NOT WORKING0
 </p>
 <br>
+<div class="form-group">
+  <label for="">Doctor Name</label>
+  <input type="text" name="" id="" class="form-control" [value]="doctor.docName" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+
 <label for="">Problem</label>
 <input type="text" [(ngModel)]="patientProblem" class="form-control" placeholder="" aria-describedby="helpId">
 <small id="helpId" class="text-muted">Help text</small>

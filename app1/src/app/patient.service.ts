@@ -39,4 +39,20 @@ export class PatientService {
   getAppointmentDetailsOfPatient() {
     return this.http.get(this.url + '/details/' + sessionStorage['id']);
   }
+
+  getDoctorDetails() {
+    return this.http.get(this.url + '/doctor/' + sessionStorage['id']);
+  }
+  postAppointmentWithOldPatient(pProblem: string, pDate: Date, docId: number) {
+    const body = {
+      'id': sessionStorage['id'],
+      'appointmentDate': pDate,
+      'problem': pProblem,
+      'docId': docId
+    };
+
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const requestOptions = new RequestOptions({headers: headers});
+    return this.http.post(this.url + '/app/old', body, requestOptions);
+  }
 }
