@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../patient.service';
 import { DoctorService } from '../../doctor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list-patient',
@@ -9,7 +10,8 @@ import { DoctorService } from '../../doctor.service';
 })
 export class InvoiceListPatientComponent implements OnInit {
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService,
+    private router: Router) {
       this.onLoadGetPatinetInvoices();
      }
     patientId = this.patientService.patientId;
@@ -40,13 +42,14 @@ export class InvoiceListPatientComponent implements OnInit {
   }
 
   payAllInvoiceForpatient() {
-    this.patientService.payAllInvoiceForpatient().subscribe(response => {
-      if (response.status === 200) {
-        alert('you have successfully paid for all the invoice');
-        this.ngOnInit();
-      } else {
-        alert('Something went wrong Sorry');
-      }
-    });
+    this.router.navigate(['/bill-patient']);
+    // this.patientService.payAllInvoiceForpatient().subscribe(response => {
+    //   if (response.status === 200) {
+    //     alert('you have successfully paid for all the invoice');
+    //     this.ngOnInit();
+    //   } else {
+    //     alert('Something went wrong Sorry');
+    //   }
+    // });
   }
 }

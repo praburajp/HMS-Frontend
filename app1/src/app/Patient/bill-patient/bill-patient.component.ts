@@ -8,24 +8,36 @@ import { PatientService } from '../../patient.service';
 })
 export class BillPatientComponent implements OnInit {
 
+  patientId = this.patientService.patientId;
+  patientInvoicesList =[];
+  totalPrice: number;
   constructor(private patientService: PatientService) { }
 
   ngOnInit() {
+    this.onLoadGetPatinetInvoices();  
   }
 
 
-  patientId = this.patientService.patientId;
-  patientInvoicesList: any;
-  totalPrice: number;
+
   
   onLoadGetPatinetInvoices() {
     this.patientService.getInvoicesOFPatient().subscribe(response => {
       if (response.status === 200 ) {
-        this.patientInvoicesList = response.json();
+        const data = response.json();
+        console.log(data);
+        console.log(data.length);
+        
+        
+        
         var value = 0;
-        for (let index = 0; index < this.patientInvoicesList.length; index++) {
-          if(this.patientInvoicesList[index].status === 'unpaid') {
-            value = value + this.patientInvoicesList[index].price;
+        for (var index = 0; index < data.length; index++) {
+          console.log(index);
+          
+          if(data[index].status === 'unpaid') {
+            console.log(data[index]);
+            
+            this.patientInvoicesList.push(data[index]);
+            value = value + data[index].price;
           }
         }
         this.totalPrice = value;

@@ -2,7 +2,7 @@
   bill-patient works!
 </p>
  
-<h3>You are seeing invoices details of patient named : {{patientId}}</h3>
+<h3>You are seeing invoices details of patient named : {{patientInvoicesList[0].patientName}}</h3>
 <table class="table table-striped">
     <thead>
       <tr>
@@ -20,6 +20,8 @@
         <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.patientName}}</td>
         <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.description}}</td>
         <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.price}}</td>
+        <td *ngIf="patientInvoice.status=='unpaid'">{{patientInvoice.status}}</td>
+
       </tr>
       <tr>
         <td></td>
@@ -29,4 +31,5 @@
       </tr>
     </tbody>
   </table>
-<button (click)="payAllInvoiceForpatient()">Pay All the amount</button>
+<button *ngIf="patientInvoicesList.length!=0" (click)="payAllInvoiceForpatient()">Pay All the amount</button>
+<div *ngIf="patientInvoicesList.length==0">You have paid all the bills</div>
