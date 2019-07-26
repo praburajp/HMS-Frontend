@@ -3,6 +3,9 @@ import { PatientService } from '../../patient.service';
 import { DoctorService } from '../../doctor.service';
 import { Router } from '@angular/router';
 
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas'; 
+
 @Component({
   selector: 'app-invoice-list-patient',
   templateUrl: './invoice-list-patient.component.html',
@@ -52,4 +55,12 @@ export class InvoiceListPatientComponent implements OnInit {
     //   }
     // });
   }
+text22()
+{
+	html2canvas(document.querySelector('#test1')).then(canvas => {
+	var pdf = new jspdf('p','pt',[canvas.width,canvas.height]);
+	var imgData= canvas.toDataURL("image/jpeg",1.0)l
+	pdf.addImage(imgData,0,0,canvas.width,canvas.width);
+	pdf.save("mypdf.pdf");
+}
 }

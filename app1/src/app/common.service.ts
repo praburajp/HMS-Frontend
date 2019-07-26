@@ -5,7 +5,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 })
 export class CommonService {
   //url = 'http://172.0.0.41:8080/HMS_v2/user';
-url = 'http://172.0.2.82:8080/HMS_v2/user';
+url = 'http://192.168.43.162:8080/HMS_v2/user';
 
   role = ['Admin', 'Doctor', 'Patient' ];
   constructor(private http: Http) { }
