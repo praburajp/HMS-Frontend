@@ -7,7 +7,11 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 export class PatientService {
 
  // url = 'http://172.0.0.41:8080/HMS_v2/patient';
+<<<<<<< HEAD
  url = 'http://localhost:7070/HMS/patient';
+=======
+ url = 'http://192.168.43.162:8080/HMS_v2/patient';
+>>>>>>> fe9f9adeac22d3fa09f117a108281a38e9f6d837
   patientId: number;
   constructor(private router: Router,
     private http: Http) { }
