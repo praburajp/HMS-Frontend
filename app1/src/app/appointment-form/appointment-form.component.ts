@@ -35,6 +35,14 @@ export class AppointmentFormComponent implements OnInit {
   }
   newPatientRegister() {
 
+    // if (new Date(this.patientAppDate.toString()).valueOf() < new Date().valueOf()) {
+    //   alert('this.patientAppDate.valueOf() < new Date().valueOf()');
+    // } else {
+    //   console.log(new Date().valueOf() + '');
+    //   console.log(new Date(this.patientAppDate.toString()).valueOf() + '');
+      
+    //   alert('ok');
+    // }
     if (this.patientName.length === 0) {
       alert('Please enter patient name');
     } else if (this.patientGender.length === 0 ) {
@@ -45,8 +53,8 @@ export class AppointmentFormComponent implements OnInit {
       alert('Please enter your email');
     } else if (this.patientProblem.length === 0) {
       alert('Please enter your problem');
-    } else if (this.patientAppDate == null) {
-      alert('Please select appointment date');
+    } else if (new Date(this.patientAppDate.toString()).valueOf() < new Date().valueOf()) {
+      alert(`don't select previous date`);
     } else {
       console.log('selected radio---->' + this.selectedRadio);
       console.log('patientName---->' + this.patientName);
@@ -70,11 +78,6 @@ export class AppointmentFormComponent implements OnInit {
             alert('Something went wrong');
             this.router.navigate(['/appointment-form']);
           }
-          // if (response.status == 200) {
-          //   alert("added");
-          // } else {
-          //   alert('something went wrong');
-          // }
         });
     }
   }

@@ -3,7 +3,7 @@ import { PatientService } from '../../patient.service';
 import { DoctorService } from '../../doctor.service';
 import { Router } from '@angular/router';
 
-import * as jspdf from 'jspdf';
+import * as jspdf from '../../../../node_modules/.jspdf.DELETE';
 import html2canvas from 'html2canvas'; 
 
 @Component({
@@ -56,11 +56,13 @@ export class InvoiceListPatientComponent implements OnInit {
     // });
   }
 text22()
-{
-	html2canvas(document.querySelector('#test1')).then(canvas => {
-	var pdf = new jspdf('p','pt',[canvas.width,canvas.height]);
-	var imgData= canvas.toDataURL("image/jpeg",1.0)l
-	pdf.addImage(imgData,0,0,canvas.width,canvas.width);
-	pdf.save("mypdf.pdf");
-}
+  {
+     html2canvas(document.querySelector('#test1')).then(canvas => {
+     var pdf = new jspdf('p','mm','a4');
+     var imgData= canvas.toDataURL("image/PNG");
+     //pdf.addImage(imgData,'PNG',0,canvas.width,canvas.width);
+     pdf.addImage(imgData,'PNG',0,0,270,270);
+     pdf.save("mypdf.pdf");
+     });
+  }
 }
