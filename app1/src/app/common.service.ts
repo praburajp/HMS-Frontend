@@ -6,11 +6,8 @@ import { Router } from '@angular/router';
 })
 export class CommonService {
   //url = 'http://172.0.0.41:8080/HMS_v2/user';
-<<<<<<< HEAD
-url = 'http://localhost:7070/HMS/user';
-=======
-url = 'http://192.168.43.162:8080/HMS_v2/user';
->>>>>>> fe9f9adeac22d3fa09f117a108281a38e9f6d837
+//url = 'http://localhost:7070/HMS/user';
+url = 'http://192.168.43.162:7070/HMS/user';
 
   role = ['Admin', 'Doctor', 'Patient' ];
   constructor(private http: Http,private router: Router) { }
