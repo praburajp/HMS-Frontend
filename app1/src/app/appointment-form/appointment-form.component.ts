@@ -34,53 +34,52 @@ export class AppointmentFormComponent implements OnInit {
   ngOnInit() {
   }
   newPatientRegister() {
-    console.log('selected radio---->' + this.selectedRadio);
-    console.log('patientName---->' + this.patientName);
-    console.log('patientGender---->' + this.patientGender);
-    console.log('patientBloodGroup---->' + this.patientBloodGroup);
-    console.log('patientContactInfo---->' + this.patientContactInfo);
-    console.log('dept selected ----->>>' + this.selectedDeptId);
-    console.log('Selected Doctor  ---->>>'  + this.selectedDocId);
-    console.log('patientProblem---->' + this.patientProblem);
-    console.log('patientAppDate---->' + this.patientAppDate );
-    this.commonService.postAppointmentWithNewPatient(this.patientName, this.patientGender,
-      this.patientBloodGroup, this.patientContactInfo, this.patientAppDate, this.selectedDeptId, this.selectedDocId,
-      this.patientProblem).subscribe(response => {
-        if (response.status === 200) {
-          const user = response.json();
-          alert('Your appointment request has been sent,' +
-          '/n your Login Crendentials are \n Login ID' + user.email +
-          '\n Password :' + user.password);
-              this.router.navigate(['/home']);
-        } else {
-          alert('Something went wrong');
-          this.router.navigate(['/appointment-form']);
-        }
-        // if (response.status == 200) {
-        //   alert("added");
-        // } else {
-        //   alert('something went wrong');
-        // }
-      });
+
+    if (this.patientName.length === 0) {
+      alert('Please enter patient name');
+    } else if (this.patientGender.length === 0 ) {
+      alert('Please select your gender');
+    } else if (this.patientBloodGroup.length === 0) {
+      alert('Please select your blood group');
+    } else if (this.patientContactInfo.length === 0) {
+      alert('Please enter your email');
+    } else if (this.patientProblem.length === 0) {
+      alert('Please enter your problem');
+    } else if (this.patientAppDate == null) {
+      alert('Please select appointment date');
+    } else {
+      console.log('selected radio---->' + this.selectedRadio);
+      console.log('patientName---->' + this.patientName);
+      console.log('patientGender---->' + this.patientGender);
+      console.log('patientBloodGroup---->' + this.patientBloodGroup);
+      console.log('patientContactInfo---->' + this.patientContactInfo);
+      console.log('dept selected ----->>>' + this.selectedDeptId);
+      console.log('Selected Doctor  ---->>>'  + this.selectedDocId);
+      console.log('patientProblem---->' + this.patientProblem);
+      console.log('patientAppDate---->' + this.patientAppDate );
+      this.commonService.postAppointmentWithNewPatient(this.patientName, this.patientGender,
+        this.patientBloodGroup, this.patientContactInfo, this.patientAppDate, this.selectedDeptId, this.selectedDocId,
+        this.patientProblem).subscribe(response => {
+          if (response.status === 200) {
+            const user = response.json();
+            alert('Your appointment request has been sent,' +
+            '/n your Login Crendentials are \n Login ID' + user.email +
+            '\n Password :' + user.password);
+                this.router.navigate(['/home']);
+          } else {
+            alert('Something went wrong');
+            this.router.navigate(['/appointment-form']);
+          }
+          // if (response.status == 200) {
+          //   alert("added");
+          // } else {
+          //   alert('something went wrong');
+          // }
+        });
+    }
   }
 
-  oldPatientRegister() {
-    const tempDocDeptWise = this.commonService.postAppointmentWithOldPatient(this.selectedPatientId,
-       this.patientProblem, this.patientAppDate, this.selectedDocId);
-    tempDocDeptWise.subscribe(response => {
-     if (response.status === 200) {
-       console.log(" lhksjfabssan RESPONSE__---------------"  + response);
-        const user = response.json();
-      alert('Your appointment request has been sent,' +
-      '/n your Login Crendentials are \n Login ID' + user.email +
-      '\n Password :' + user.password);
-          this.router.navigate(['/home']);
-    } else {
-      alert('Something went wrong');
-      this.router.navigate(['/appointment-form']);
-    }
-    });
-  }
+
   onLoadListDept() {
     const tempObs = this.commonService.getDeptList();
     tempObs.subscribe(response => {

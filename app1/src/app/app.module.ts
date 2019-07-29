@@ -32,6 +32,7 @@ import { DoctorService } from './doctor.service';
 import { PatientService } from './patient.service';
 import { AppointmentPatientComponent } from './Patient/appointment-patient/appointment-patient.component';
 import { BillPatientComponent } from './Patient/bill-patient/bill-patient.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { BillPatientComponent } from './Patient/bill-patient/bill-patient.compon
     InvoiceListAdminComponent,
     AppointmentListAdminComponent,
     AppointmentPatientComponent,
-    BillPatientComponent
+    BillPatientComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

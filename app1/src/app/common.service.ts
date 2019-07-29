@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
   //url = 'http://172.0.0.41:8080/HMS_v2/user';
-url = 'http://172.0.2.82:8080/HMS_v2/user';
+url = 'http://localhost:7070/HMS/user';
 
   role = ['Admin', 'Doctor', 'Patient' ];
-  constructor(private http: Http) { }
+  constructor(private http: Http,private router: Router) { }
 
   onLogin(email: string, password: string, role: string) {
     const body = {

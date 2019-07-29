@@ -8,7 +8,7 @@ import { Headers, RequestOptions, Http } from '@angular/http';
 })
 export class AdminService {
      //url = 'http://172.0.0.41:8080/HMS_v2/admin';
-url = 'http://172.0.2.82:8080/HMS_v2/admin';
+url = 'http://localhost:7070/HMS/admin';
   constructor(private router: Router,
     private http: Http) { }
   adminId: number;

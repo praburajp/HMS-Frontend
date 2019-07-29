@@ -7,7 +7,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 })
 export class DoctorService {
   //url = 'http://172.0.0.41:8080/HMS_v2/doctor';
-url = 'http://172.0.2.82:8080/HMS_v2/doctor';
+url = 'http://localhost:7070/HMS/doctor';
   docId: number;
   constructor(private http: Http,
                 private router: Router) { }
